@@ -2,6 +2,10 @@ const Employee = require("../models/employeeModel")
 
 const getEmployees = async (req,res) => {
     const emps = await Employee.find()
+    res.status(200).json(emps.reverse())
+}
+const getSingleEmployee = async (req,res) => {
+    const emps = await Employee.findById(req.params.id)
     res.status(200).json(emps)
 }
 const createEmployee = async (req,res) => {
@@ -12,7 +16,7 @@ const createEmployee = async (req,res) => {
     // check if already exists
     const employeeExists = await Employee.find({name:name})
     
-    if (employeeExists.length ===0){
+    if (employeeExists.length === 0){
         const employee = await Employee.create({
             name:name, 
             age:age
@@ -40,7 +44,7 @@ const deleteEmployee = async (req,res) => {
     if(!employee){
         res.status(400).json({message: "employee not found"})
     }else {
-        await employee.remove()
+        await employee.deleteOne()
         res.status(200).json({id: req.params.id})
     }
     
@@ -49,6 +53,7 @@ const deleteEmployee = async (req,res) => {
 
 module.exports = {
     getEmployees,
+    getSingleEmployee,
     createEmployee,
     updateEmployee,
     deleteEmployee
