@@ -4,6 +4,8 @@ export const globalStyles = StyleSheet.create({
   container: {
     padding: 20,
     flex: 1,
+
+    alignItems: "center",
   },
   titleText: {
     fontWeight: "bold",
@@ -48,5 +50,14 @@ export const globalStyles = StyleSheet.create({
   modalContainer: {
     alignItems: "center",
     justifyContent: "center",
+  },
+  employeeInfo: {
+    fontSize: 18,
+    fontWeight: "900",
+  },
+  deleteBtn: {
+    backgroundColor: "rgb(202, 47, 47)",
+    padding: 15,
+    borderRadius: 10,
   },
 });

@@ -82,7 +82,7 @@ export default function Home({ navigation }) {
           <Modal isVisible={isModalVisible}>
             <View style={globalStyles.modalContainer}>
               <Text style={{ color: "white", fontSize: 20, marginBottom: 10 }}>
-                {/* Add an Employee */} {name}
+                Add an Employee
               </Text>
               <TextInput
                 placeholder="Enter Employee Name"
